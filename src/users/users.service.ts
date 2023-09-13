@@ -21,7 +21,7 @@ export class UsersService{
              });
          
              if (existing) {
-               throw new ConflictException('username already exists');
+               throw new ConflictException('Tên người dùng đã tồn tại');
              }
          
              return this.prisma.users.create({

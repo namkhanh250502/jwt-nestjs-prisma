@@ -24,13 +24,13 @@ export class AuthService{
           })
 
           if(!users){
-               throw new NotFoundException('user not found')
+               throw new NotFoundException('Người dùng hoặc mật khẩu không chính xác')
           }
 
           const validatePassword = await bcrypt.compare(password,users.password)
 
           if(!validatePassword){
-               throw new NotFoundException('Invalid password')
+               throw new NotFoundException('Mật khẩu không chính xác')
           }
 
           return {
